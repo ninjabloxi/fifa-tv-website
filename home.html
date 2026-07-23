@@ -8,13 +8,13 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body class="home-body">
-    <!-- Header Apple Style -->
     <header class="app-header">
         <div class="header-left">
             <img src="logo.png" alt="FIFA TV" class="nav-logo">
             <span class="app-name">FIFA TV</span>
         </div>
         <div class="header-right">
+            <button class="admin-fab" id="adminFabBtn" style="display: none;" title="Panneau Admin">+</button>
             <div class="user-profile" id="userProfileArea">
                 <span id="userNameDisplay">Mon Compte</span>
                 <button class="logout-btn" id="logoutBtn">Déconnexion</button>
@@ -22,86 +22,73 @@
         </div>
     </header>
 
-    <!-- Navigation moderne -->
-    <nav class="sub-nav">
+    <nav class="sub-nav" id="categoriesNav">
         <button class="nav-tab active" data-target="cat-all">Tout</button>
         <button class="nav-tab" data-target="cat-channels">Chaînes TV</button>
         <button class="nav-tab" data-target="cat-matches">Matchs en Direct</button>
         <button class="nav-tab" data-target="cat-favorites">Favoris</button>
     </nav>
 
-    <!-- Contenu Principal Streaming -->
-    <main class="main-content">
-        <!-- Section Chaînes -->
-        <section class="content-section" id="section-channels">
-            <h2 class="section-title">Chaînes Officielles</h2>
-            <div class="cards-grid">
-                <div class="stream-card">
-                    <div class="card-thumbnail chan-bg-1">
-                        <span class="live-badge">LIVE 24/7</span>
-                    </div>
-                    <div class="stream-info">
-                        <h3>FIFA Channel HD</h3>
-                        <p>Actualités, documentaires et rétrospectives mondiales</p>
-                    </div>
+    <main class="main-content" id="mainContentContainer">
+        <section class="content-section" id="section-dynamic-videos">
+            <h2 class="section-title" id="dynamicSectionTitle">Vidéos et Flux</h2>
+            <div class="cards-grid" id="dynamicVideosGrid">
                 </div>
-                <div class="stream-card">
-                    <div class="card-thumbnail chan-bg-2">
-                        <span class="live-badge">LIVE 4K</span>
-                    </div>
-                    <div class="stream-info">
-                        <h3>World Cup Arena</h3>
-                        <p>Les plus grands matchs de l'histoire en rediffusion</p>
-                    </div>
-                </div>
-                <div class="stream-card">
-                    <div class="card-thumbnail chan-bg-3">
-                        <span class="live-badge">PROXIMITY</span>
-                    </div>
-                    <div class="stream-info">
-                        <h3>FIFA+ Live TV</h3>
-                        <p>Compétitions juveniles, beach soccer et futsal</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Matchs -->
-        <section class="content-section" id="section-matches">
-            <h2 class="section-title">Matchs & Affiches</h2>
-            <div class="cards-grid">
-                <div class="stream-card">
-                    <div class="card-thumbnail match-bg-1">
-                        <span class="status-badge upcoming">Aujourd'hui - 21:00</span>
-                    </div>
-                    <div class="stream-info">
-                        <h3>Brésil vs France (Classic Final)</h3>
-                        <p>Match amical international légendaire - Stade de France</p>
-                    </div>
-                </div>
-                <div class="stream-card">
-                    <div class="card-thumbnail match-bg-2">
-                        <span class="status-badge live">EN DIRECT</span>
-                    </div>
-                    <div class="stream-info">
-                        <h3>Argentine vs Espagne</h3>
-                        <p>Supercoupe des Légendes - Buenos Aires</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Favoris -->
-        <section class="content-section" id="section-favorites">
-            <h2 class="section-title">Mes Favoris</h2>
-            <div class="empty-favorites">
-                <p>Aucun favori enregistré pour le moment.</p>
-                <span>Ajoutez des matchs ou chaînes à vos favoris en un clic.</span>
-            </div>
         </section>
     </main>
 
-    <!-- Firebase SDK CDN -->
+    <div class="admin-modal" id="adminModal">
+        <div class="admin-card">
+            <div class="admin-header-modal">
+                <h2>Panneau d'Administration FIFA TV</h2>
+                <button class="close-modal-btn" id="closeAdminModal">&times;</button>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-tab="tab-add-video">Ajouter une Vidéo</button>
+                <button class="admin-tab-btn" data-tab="tab-manage-cats">Gérer les Catégories</button>
+            </div>
+
+            <div class="admin-tab-content active" id="tab-add-video">
+                <form id="addVideoForm">
+                    <div class="form-group">
+                        <label>Titre de la vidéo</label>
+                        <input type="text" id="videoTitle" required placeholder="Ex: Résumé FIFA World Cup">
+                    </div>
+                    <div class="form-group">
+                        <label>Lien de l'image miniature (URL)</label>
+                        <input type="url" id="videoThumb" required placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label>Catégorie</label>
+                        <select id="videoCategorySelect" required>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Lien de la vidéo (YouTube ou autre)</label>
+                        <input type="url" id="videoLink" required placeholder="https://www.youtube.com/watch?v=... ou lien direct">
+                    </div>
+                    <button type="submit" class="apple-btn">Publier la vidéo</button>
+                </form>
+            </div>
+
+            <div class="admin-tab-content" id="tab-manage-cats">
+                <div class="form-group">
+                    <label>Créer une nouvelle catégorie</label>
+                    <div class="inline-group">
+                        <input type="text" id="newCatName" placeholder="Nom de la catégorie">
+                        <button type="button" id="createCatBtn" class="apple-btn-small">Créer</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Catégories existantes</label>
+                    <div class="categories-list-admin" id="categoriesListAdmin">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="script.js"></script>
