@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userNameDisplay.textContent = userData.displayName;
 
         // Restriction stricte de l'Admin pour clementcochie@gmail.com
-        const ADMIN_EMAIL = "clementcochie@gmail.com";
+        const ADMIN_EMAILS = ["clementcochie@gmail.com", "switchdeclem@gmail.com"];
         if (userData.email && userData.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
             if (adminFabBtn) adminFabBtn.style.display = 'flex';
         }
