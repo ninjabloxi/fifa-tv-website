@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - FIFA TV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="home-body">
+    <!-- Header Apple Style -->
+    <header class="app-header">
+        <div class="header-left">
+            <img src="logo.png" alt="FIFA TV" class="nav-logo">
+            <span class="app-name">FIFA TV</span>
+        </div>
+        <div class="header-right">
+            <div class="user-profile" id="userProfileArea">
+                <span id="userNameDisplay">Mon Compte</span>
+                <button class="logout-btn" id="logoutBtn">Déconnexion</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation moderne -->
+    <nav class="sub-nav">
+        <button class="nav-tab active" data-target="cat-all">Tout</button>
+        <button class="nav-tab" data-target="cat-channels">Chaînes TV</button>
+        <button class="nav-tab" data-target="cat-matches">Matchs en Direct</button>
+        <button class="nav-tab" data-target="cat-favorites">Favoris</button>
+    </nav>
+
+    <!-- Contenu Principal Streaming -->
+    <main class="main-content">
+        <!-- Section Chaînes -->
+        <section class="content-section" id="section-channels">
+            <h2 class="section-title">Chaînes Officielles</h2>
+            <div class="cards-grid">
+                <div class="stream-card">
+                    <div class="card-thumbnail chan-bg-1">
+                        <span class="live-badge">LIVE 24/7</span>
+                    </div>
+                    <div class="stream-info">
+                        <h3>FIFA Channel HD</h3>
+                        <p>Actualités, documentaires et rétrospectives mondiales</p>
+                    </div>
+                </div>
+                <div class="stream-card">
+                    <div class="card-thumbnail chan-bg-2">
+                        <span class="live-badge">LIVE 4K</span>
+                    </div>
+                    <div class="stream-info">
+                        <h3>World Cup Arena</h3>
+                        <p>Les plus grands matchs de l'histoire en rediffusion</p>
+                    </div>
+                </div>
+                <div class="stream-card">
+                    <div class="card-thumbnail chan-bg-3">
+                        <span class="live-badge">PROXIMITY</span>
+                    </div>
+                    <div class="stream-info">
+                        <h3>FIFA+ Live TV</h3>
+                        <p>Compétitions juveniles, beach soccer et futsal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Matchs -->
+        <section class="content-section" id="section-matches">
+            <h2 class="section-title">Matchs & Affiches</h2>
+            <div class="cards-grid">
+                <div class="stream-card">
+                    <div class="card-thumbnail match-bg-1">
+                        <span class="status-badge upcoming">Aujourd'hui - 21:00</span>
+                    </div>
+                    <div class="stream-info">
+                        <h3>Brésil vs France (Classic Final)</h3>
+                        <p>Match amical international légendaire - Stade de France</p>
+                    </div>
+                </div>
+                <div class="stream-card">
+                    <div class="card-thumbnail match-bg-2">
+                        <span class="status-badge live">EN DIRECT</span>
+                    </div>
+                    <div class="stream-info">
+                        <h3>Argentine vs Espagne</h3>
+                        <p>Supercoupe des Légendes - Buenos Aires</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Favoris -->
+        <section class="content-section" id="section-favorites">
+            <h2 class="section-title">Mes Favoris</h2>
+            <div class="empty-favorites">
+                <p>Aucun favori enregistré pour le moment.</p>
+                <span>Ajoutez des matchs ou chaînes à vos favoris en un clic.</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Firebase SDK CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
