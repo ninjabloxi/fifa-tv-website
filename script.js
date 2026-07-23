@@ -1,11 +1,12 @@
 // --- FIREBASE CONFIGURATION ---
 const firebaseConfig = {
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+  apiKey: "AIzaSyA0wGD-T7bzHGuSu7qxw7qEe-tExpqz0p4",
+  authDomain: "fifa-tv-database.firebaseapp.com",
+  projectId: "fifa-tv-database",
+  storageBucket: "fifa-tv-database.firebasestorage.app",
+  messagingSenderId: "916734081043",
+  appId: "1:916734081043:web:13a741a8747ace5d3ee7e6",
+  measurementId: "G-P89G4BDBWX"
 };
 
 // Initialisation Firebase si configuré
