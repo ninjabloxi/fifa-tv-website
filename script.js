@@ -173,8 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
         userNameDisplay.textContent = userData.displayName;
 
         // Restriction stricte de l'Admin pour clementcochie@gmail.com
-        const ADMIN_EMAILS = ["clementcochie@gmail.com", "switchdeclem@gmail.com"];
-        if (userData.email && userData.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
+                const ADMIN_EMAILS = ["clementcochie@gmail.com", "switchdeclem@gmail.com"];
+        if (userData.email && ADMIN_EMAILS.includes(userData.email.toLowerCase().trim())) {
             if (adminFabBtn) adminFabBtn.style.display = 'flex';
         }
 
@@ -253,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
 
 // --- SYNCHRONISATION ET RENDU (MONGODB / LOCAL) ---
 function loadMongoDBData() {
