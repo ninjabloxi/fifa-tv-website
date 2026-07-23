@@ -1,11 +1,12 @@
 // --- CONFIGURATION FIREBASE ---
 const firebaseConfig = {
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+  apiKey: "AIzaSyA0wGD-T7bzHGuSu7qxw7qEe-tExpqz0p4",
+  authDomain: "fifa-tv-database.firebaseapp.com",
+  projectId: "fifa-tv-database",
+  storageBucket: "fifa-tv-database.firebasestorage.app",
+  messagingSenderId: "916734081043",
+  appId: "1:916734081043:web:13a741a8747ace5d3ee7e6",
+  measurementId: "G-P89G4BDBWX"
 };
 
 // Initialisation Firebase si configuré
@@ -20,7 +21,7 @@ try {
 }
 
 // --- CONFIGURATION MONGODB ATLAS / API ---
-const MONGODB_API_URL = "VOTRE_ENDPOINT_MONGODB_API"; 
+const MONGODB_API_URL = "mongodb+srv://clemgemini_db_user:JCR9WywE8mf4GAn0@fifatv.3jakpkk.mongodb.net/?appName=FifaTV"; 
 
 // --- LANGUES DISPONIBLES (index.html) ---
 const LANGUAGES = [
