@@ -1,0 +1,13 @@
+{
+  "name": "fifa-tv",
+  "version": "1.0.0",
+  "description": "Plateforme FIFA TV",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "firebase": "^10.8.0",
+    "mongodb": "^6.7.0"
+  }
+}
